@@ -32,7 +32,7 @@ submitButton.addEventListener('click',(e)=>{
 
     const addValue = document.createElement('td')
     newLine.appendChild(addValue)
-    addValue.innerHTML = valueAdd
+    addValue.innerHTML = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL'}).format(valueAdd)
 
     const delBtn = document.createElement('button')
     
@@ -44,7 +44,7 @@ submitButton.addEventListener('click',(e)=>{
     transArray.push({description: descriptionAdd, date: dateAdd, value: Number(valueAdd)})
     console.log(transArray) 
 
-    const total = transArray.reduce((sum, li)=>sum + li.value, 0)
+    const total = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL'}).format(transArray.reduce((sum, li)=>sum + li.value, 0)) 
     
     totalField.innerHTML = total
 
